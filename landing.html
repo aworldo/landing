@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>awxrldo — веб-студия</title>
+  <meta name="description" content="awxrldo — создаю быстрые и красивые сайты, мини-игры и интерфейсы" />
+  <style>
+    :root {
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#9aa6b2;
+      --glass: rgba(255,255,255,0.03); font-family: Inter, Roboto, system-ui, Arial, sans-serif;
+    }
+    * {box-sizing: border-box}
+    body {margin:0; background:linear-gradient(180deg,#071019 0%, #071428 60%);
+      color:#e6eef6; line-height:1.45}
+    .container {max-width:1100px; margin:0 auto; padding:28px}
+    header {display:flex; justify-content:space-between; align-items:center; padding:8px 0}
+    .logo {display:flex; gap:12px; align-items:center}
+    .logo .mark {width:44px; height:44px; border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#4f46e5);
+      display:flex; align-items:center; justify-content:center; font-weight:700}
+    nav {display:flex; gap:16px; align-items:center}
+    nav a {color:var(--muted); text-decoration:none; font-size:15px}
+    .btn {background:var(--accent); padding:10px 14px; border-radius:10px;
+      color:#042027; text-decoration:none; font-weight:600}
+    /* Hero */
+    .hero {display:grid; grid-template-columns:1fr 420px; gap:30px; align-items:center; padding:36px 0}
+    .hero h1 {font-size:34px; margin:0 0 12px}
+    .hero p {color:var(--muted); margin:0 0 20px}
+    .cards {display:flex; gap:12px; flex-wrap:wrap}
+    .card {background:var(--card); padding:14px; border-radius:12px;
+      min-width:160px; box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .mock {height:320px; border-radius:14px; background:linear-gradient(180deg,#0b1220,#071428);
+      display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.02)}
+    .mock small {color:var(--muted)}
+    /* Services */
+    .services {display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:30px}
+    .service {background:var(--glass); padding:18px; border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03)}
+    .service h3 {margin:0 0 8px}
+    .portfolio {margin-top:28px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .port-item {background:#071827; padding:10px; border-radius:10px; height:140px;
+      display:flex; flex-direction:column; justify-content:flex-end}
+    footer {margin-top:40px; padding:30px 0; color:var(--muted); font-size:14px;
+      border-top:1px solid rgba(255,255,255,0.03)}
+    @media (max-width:980px){
+      .hero {grid-template-columns:1fr; gap:16px}
+      .services {grid-template-columns:repeat(2,1fr)}
+      .portfolio {grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .services {grid-template-columns:1fr}
+      .portfolio {grid-template-columns:1fr}
+      nav {display:none}
+    }
+    /* Modal */
+    .modal-back {position:fixed; inset:0; background:rgba(2,6,23,0.6);
+      display:none; align-items:center; justify-content:center; padding:20px}
+    .modal {background:#021024; padding:20px; border-radius:12px; max-width:520px; width:100%}
+    .field {display:flex; flex-direction:column; gap:8px; margin-bottom:12px}
+    input,textarea {background:transparent; border:1px solid rgba(255,255,255,0.06);
+      padding:10px; border-radius:8px; color:inherit}
+    .close {background:transparent; border:0; color:var(--muted); cursor:pointer}
+    .hidden {opacity:0; transform:translateY(12px); transition:all 600ms cubic-bezier(.2,.9,.2,1)}
+    .reveal {opacity:1; transform:none}
+    .muted {color:var(--muted); font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">A</div>
+        <div>
+          <div style="font-weight:700">awxrldo</div>
+          <div class="muted" style="margin-top:2px">Веб-студия • мини-игры • фриланс</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contact" id="openContact">Заказать</a>
+      </nav>
+      <a class="btn" id="topOrder">Заказать сайт</a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1 class="hidden">awxrldo — быстрые сайты и мини-игры</h1>
+        <p class="hidden">Делаю адаптивные лендинги, мини-игры на JavaScript и простые backend-решения. Быстро, аккуратно и со стилем.</p>
+        <div class="cards hidden">
+          <div class="card">
+            <div style="font-size:13px;color:var(--muted)">Цена от</div>
+            <div style="font-weight:700;margin-top:6px">5$ — мини-задача</div>
+          </div>
+          <div class="card">
+            <div style="font-size:13px;color:var(--muted)">Срок</div>
+            <div style="font-weight:700;margin-top:6px">1–3 дня</div>
+          </div>
+          <div class="card">
+            <div style="font-size:13px;color:var(--muted)">Гарантия</div>
+            <div style="font-weight:700;margin-top:6px">Исправлю баги 7 дн.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px" class="hidden">
+          <a class="btn" id="orderNow">Заказать за 5$</a>
+        </div>
+
+        <div class="services hidden" id="services" style="margin-top:28px">
+          <div class="service">
+            <h3>Верстка / Адаптив</h3>
+            <div class="muted">Сделаю секцию, исправлю адаптив, сверстаю лендинг.</div>
+          </div>
+          <div class="service">
+            <h3>JS эффекты</h3>
+            <div class="muted">Анимации, таймеры, всплывающие окна, мини-игры.</div>
+          </div>
+          <div class="service">
+            <h3>Fullstack</h3>
+            <div class="muted">Node.js API, сохранение в LocalStorage / MongoDB.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mock hidden">
+        <div style="text-align:center">
+          <small>Превью проекта или мини-игры</small>
+          <div style="height:14px"></div>
+          <div style="width:220px;height:140px;background:linear-gradient(135deg,#021f2a,#062033);
+            border-radius:8px;display:inline-block;padding:12px;color:var(--muted);margin-top:12px">
+            <div style="font-weight:700">Game: «Угадай число»</div>
+            <div style="font-size:13px;margin-top:8px">JS • HTML • CSS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="hidden" style="margin-top:18px">
+      <h2 style="margin:0 0 12px">Портфолио</h2>
+      <div class="portfolio">
+        <div class="port-item">Лендинг «CodeDrive» — адаптивный</div>
+        <div class="port-item">Guess Number — мини-игра</div>
+        <div class="port-item">Todo App — LocalStorage</div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700">awxrldo</div>
+          <div class="muted">Создаю сайты, игры и фичи для вашего проекта</div>
+        </div>
+        <div class="muted">Email: awxrldo@example.com • Telegram: @awxrldo</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-back" id="modal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:700">Заказать у awxrldo</div>
+        <button class="close" id="closeModal">✕</button>
+      </div>
+      <p class="muted" style="margin-top:6px">Опиши задачу — я отправлю цену и сроки.</p>
+      <div style="margin-top:12px">
+        <div class="field">
+          <label>Имя</label>
+          <input id="inpName" placeholder="Твоё имя" />
+        </div>
+        <div class="field">
+          <label>Описание</label>
+          <textarea id="inpMsg" rows="4" placeholder="Коротко опиши задачу"></textarea>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;justify-content:flex-end">
+          <button class="close" id="cancel">Отмена</button>
+          <button class="btn" id="send">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal open/close
+    const modal = document.getElementById('modal');
+    document.getElementById('orderNow').onclick =
+    document.getElementById('topOrder').onclick =
+    document.getElementById('openContact').onclick = (e) => {
+      if(e) e.preventDefault();
+      modal.style.display = 'flex';
+      document.getElementById('inpName').focus();
+    };
+    document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
+    document.getElementById('cancel').onclick = () => modal.style.display = 'none';
+
+    // Fake send
+    document.getElementById('send').onclick = () => {
+      const name = document.getElementById('inpName').value.trim();
+      const msg = document.getElementById('inpMsg').value.trim();
+      if(!msg){ alert('Опиши задачу коротко'); return; }
+      alert('Заявка отправлена — спасибо, ' + (name || 'друг') + '!');
+      document.getElementById('inpName').value = '';
+      document.getElementById('inpMsg').value = '';
+      modal.style.display = 'none';
+    };
+
+    // Scroll animation
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting) ent.target.classList.add('reveal');
+      });
+    }, {threshold: 0.15});
+    document.querySelectorAll('.hidden').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
