@@ -20,10 +20,8 @@
       background:linear-gradient(135deg,var(--accent),#4f46e5);
       display:flex; align-items:center; justify-content:center; font-weight:700}
     nav {display:flex; gap:16px; align-items:center}
-    nav a {color:var(--muted); text-decoration:none; font-size:15px}
     .btn {background:var(--accent); padding:10px 14px; border-radius:10px;
       color:#042027; text-decoration:none; font-weight:600}
-    /* Hero */
     .hero {display:grid; grid-template-columns:1fr 420px; gap:30px; align-items:center; padding:36px 0}
     .hero h1 {font-size:34px; margin:0 0 12px}
     .hero p {color:var(--muted); margin:0 0 20px}
@@ -33,7 +31,6 @@
     .mock {height:320px; border-radius:14px; background:linear-gradient(180deg,#0b1220,#071428);
       display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.02)}
     .mock small {color:var(--muted)}
-    /* Services */
     .services {display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:30px}
     .service {background:var(--glass); padding:18px; border-radius:12px;
       border:1px solid rgba(255,255,255,0.03)}
@@ -53,7 +50,6 @@
       .portfolio {grid-template-columns:1fr}
       nav {display:none}
     }
-    /* Modal */
     .modal-back {position:fixed; inset:0; background:rgba(2,6,23,0.6);
       display:none; align-items:center; justify-content:center; padding:20px}
     .modal {background:#021024; padding:20px; border-radius:12px; max-width:520px; width:100%}
@@ -84,37 +80,19 @@
         <h1 class="hidden">awxrldo — быстрые сайты и мини-игры</h1>
         <p class="hidden">Делаю адаптивные лендинги, мини-игры на JavaScript и простые backend-решения. Быстро, аккуратно и со стилем.</p>
         <div class="cards hidden">
-          <div class="card">
-            <div style="font-size:13px;color:var(--muted)">Цена от</div>
-            <div style="font-weight:700;margin-top:6px">5$ — мини-задача</div>
-          </div>
-          <div class="card">
-            <div style="font-size:13px;color:var(--muted)">Срок</div>
-            <div style="font-weight:700;margin-top:6px">1–3 дня</div>
-          </div>
-          <div class="card">
-            <div style="font-size:13px;color:var(--muted)">Гарантия</div>
-            <div style="font-weight:700;margin-top:6px">Исправлю баги 7 дн.</div>
-          </div>
+          <div class="card"><div style="font-size:13px;color:var(--muted)">Цена от</div><div style="font-weight:700;margin-top:6px">5$ — мини-задача</div></div>
+          <div class="card"><div style="font-size:13px;color:var(--muted)">Срок</div><div style="font-weight:700;margin-top:6px">1–3 дня</div></div>
+          <div class="card"><div style="font-size:13px;color:var(--muted)">Гарантия</div><div style="font-weight:700;margin-top:6px">Исправлю баги 7 дн.</div></div>
         </div>
 
         <div style="margin-top:20px" class="hidden">
           <a class="btn" id="orderNow">Заказать за 5$</a>
         </div>
 
-        <div class="services hidden" id="services" style="margin-top:28px">
-          <div class="service">
-            <h3>Верстка / Адаптив</h3>
-            <div class="muted">Сделаю секцию, исправлю адаптив, сверстаю лендинг.</div>
-          </div>
-          <div class="service">
-            <h3>JS эффекты</h3>
-            <div class="muted">Анимации, таймеры, всплывающие окна, мини-игры.</div>
-          </div>
-          <div class="service">
-            <h3>Fullstack</h3>
-            <div class="muted">Node.js API, сохранение в LocalStorage / MongoDB.</div>
-          </div>
+        <div class="services hidden" style="margin-top:28px">
+          <div class="service"><h3>Верстка / Адаптив</h3><div class="muted">Сделаю секцию, исправлю адаптив, сверстаю лендинг.</div></div>
+          <div class="service"><h3>JS эффекты</h3><div class="muted">Анимации, таймеры, всплывающие окна, мини-игры.</div></div>
+          <div class="service"><h3>Fullstack</h3><div class="muted">Node.js API, сохранение в LocalStorage / MongoDB.</div></div>
         </div>
       </div>
 
@@ -131,7 +109,7 @@
       </div>
     </section>
 
-    <section id="portfolio" class="hidden" style="margin-top:18px">
+    <section class="hidden" style="margin-top:18px">
       <h2 style="margin:0 0 12px">Портфолио</h2>
       <div class="portfolio">
         <div class="port-item">Лендинг «CodeDrive» — адаптивный</div>
@@ -142,16 +120,13 @@
 
     <footer>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>
-          <div style="font-weight:700">awxrldo</div>
-          <div class="muted">Создаю сайты, игры и фичи для вашего проекта</div>
-        </div>
+        <div><div style="font-weight:700">awxrldo</div><div class="muted">Создаю сайты, игры и фичи для вашего проекта</div></div>
         <div class="muted">Email: awxrldo@example.com • Telegram: @awxrldo</div>
       </div>
     </footer>
   </div>
 
-  <!-- Modal -->
+  <!-- Модальное окно -->
   <div class="modal-back" id="modal">
     <div class="modal">
       <div style="display:flex;justify-content:space-between;align-items:center">
@@ -177,30 +152,39 @@
   </div>
 
   <script>
-    // Modal open/close
+    // Модалка
     const modal = document.getElementById('modal');
     document.getElementById('orderNow').onclick =
-    document.getElementById('topOrder').onclick =
-    document.getElementById('openContact').onclick = (e) => {
-      if(e) e.preventDefault();
+    document.getElementById('topOrder').onclick = () => {
       modal.style.display = 'flex';
       document.getElementById('inpName').focus();
     };
-    document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
+    document.getElementById('closeModal').onclick =
     document.getElementById('cancel').onclick = () => modal.style.display = 'none';
 
-    // Fake send
-    document.getElementById('send').onclick = () => {
-      const name = document.getElementById('inpName').value.trim();
-      const msg = document.getElementById('inpMsg').value.trim();
-      if(!msg){ alert('Опиши задачу коротко'); return; }
-      alert('Заявка отправлена — спасибо, ' + (name || 'друг') + '!');
-      document.getElementById('inpName').value = '';
-      document.getElementById('inpMsg').value = '';
-      modal.style.display = 'none';
+    // Отправка через Cloudflare Worker
+    document.getElementById("send").onclick = async () => {
+      const name = document.getElementById("inpName").value.trim();
+      const msg = document.getElementById("inpMsg").value.trim();
+      if (!msg) return alert("Опиши задачу коротко");
+
+      try {
+        await fetch("https://awxrldo-worker.username.workers.dev/", { // ⚠️ замени на свой Worker URL
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, message: msg }),
+        });
+
+        alert("✅ Заявка отправлена! Я скоро свяжусь с тобой.");
+        document.getElementById("inpName").value = "";
+        document.getElementById("inpMsg").value = "";
+        modal.style.display = "none";
+      } catch (err) {
+        alert("❌ Ошибка сети!");
+      }
     };
 
-    // Scroll animation
+    // Анимация появления
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(ent=>{
         if(ent.isIntersecting) ent.target.classList.add('reveal');
@@ -209,29 +193,4 @@
     document.querySelectorAll('.hidden').forEach(el => obs.observe(el));
   </script>
 </body>
-<script>
-const token = "8095350770:AAGeGlLYvRtpi_gFiEffnczUSQce20QY8M8"; // сюда вставь токен от BotFather
-const chatId = "1926259944";   // сюда вставь свой chat_id (узнаешь у @userinfobot)
-
-document.querySelector("form").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const name = this.querySelector('input[name="name"]').value;
-  const message = this.querySelector('textarea[name="description"]').value;
-
-  const text = `🧾 Новый заказ у awxrldo\n\n👤 Имя: ${name}\n💬 Задача: ${message}`;
-
-  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, text })
-  })
-  .then(res => {
-    if (res.ok) alert("✅ Заявка отправлена! Я скоро свяжусь с тобой.");
-    else alert("❌ Ошибка при отправке!");
-  })
-  .catch(() => alert("❌ Ошибка сети!"));
-});
-</script>
-
 </html>
